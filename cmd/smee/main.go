@@ -19,8 +19,8 @@ import (
 	"github.com/go-logr/zapr"
 	"github.com/insomniacslk/dhcp/dhcpv4"
 	"github.com/insomniacslk/dhcp/dhcpv4/server4"
-	"github.com/tinkerbell/ipxedust"
-	"github.com/tinkerbell/ipxedust/ihttp"
+	ipxedust "github.com/rpardini/tinkerbell-ipxedust"
+	"github.com/rpardini/tinkerbell-ipxedust/ihttp"
 	"github.com/tinkerbell/smee/internal/dhcp/handler"
 	"github.com/tinkerbell/smee/internal/dhcp/handler/proxy"
 	"github.com/tinkerbell/smee/internal/dhcp/handler/reservation"
@@ -180,7 +180,7 @@ func main() {
 	// tftp
 	if cfg.tftp.enabled {
 		tftpServer := &ipxedust.Server{
-			Log:                  log.WithValues("service", "github.com/tinkerbell/smee").WithName("github.com/tinkerbell/ipxedust"),
+			Log:                  log.WithValues("service", "github.com/tinkerbell/smee").WithName("github.com/rpardini/tinkerbell-ipxedust"),
 			HTTP:                 ipxedust.ServerSpec{Disabled: true}, // disabled because below we use the http handlerfunc instead.
 			EnableTFTPSinglePort: true,
 		}
@@ -210,7 +210,7 @@ func main() {
 	if cfg.ipxeHTTPBinary.enabled {
 		// serve ipxe binaries from the "/ipxe/" URI.
 		handlers["/ipxe/"] = ihttp.Handler{
-			Log:   log.WithValues("service", "github.com/tinkerbell/smee").WithName("github.com/tinkerbell/ipxedust"),
+			Log:   log.WithValues("service", "github.com/tinkerbell/smee").WithName("github.com/rpardini/tinkerbell-ipxedust"),
 			Patch: []byte(cfg.tftp.ipxeScriptPatch),
 		}.Handle
 	}
