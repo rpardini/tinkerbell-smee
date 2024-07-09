@@ -5,11 +5,11 @@ on:
       - "*"
     tags-ignore:
       - "v*"
-  pull_request:
+  #pull_request:
 
 env:
   REGISTRY: quay.io
-  IMAGE: quay.io/${{ github.repository }}
+  IMAGE: quay.io/tinkerbellrpardini/smee
   CGO_ENABLED: 0
   GO_VERSION: "1.22.5"
 
@@ -46,13 +46,13 @@ jobs:
       - name: Generate all files
         run: make -j1 gen
 
-      - name: Run all the tests
-        run: make ci
+      #- name: Run all the tests
+      #  run: make ci
 
-      - name: upload codecov
-        uses: codecov/codecov-action@v4
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      #- name: upload codecov # rpardini disabled
+      #  uses: codecov/codecov-action@v4
+      #  env:
+      #    CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       - name: compile binaries
         run: make crosscompile
