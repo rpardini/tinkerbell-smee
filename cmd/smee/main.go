@@ -83,6 +83,7 @@ type ipxeHTTPScript struct {
 	hookURL                       string
 	tinkServer                    string
 	tinkServerUseTLS              bool
+	tinkServerInsecureTLS         bool
 	trustedProxies                string
 	disableDiscoverTrustedProxies bool
 	retries                       int
@@ -225,15 +226,16 @@ func main() {
 		}
 
 		jh := script.Handler{
-			Logger:               log,
-			Backend:              br,
-			OSIEURL:              cfg.ipxeHTTPScript.hookURL,
-			ExtraKernelParams:    strings.Split(cfg.ipxeHTTPScript.extraKernelArgs, " "),
-			PublicSyslogFQDN:     cfg.dhcp.syslogIP,
-			TinkServerTLS:        cfg.ipxeHTTPScript.tinkServerUseTLS,
-			TinkServerGRPCAddr:   cfg.ipxeHTTPScript.tinkServer,
-			IPXEScriptRetries:    cfg.ipxeHTTPScript.retries,
-			IPXEScriptRetryDelay: cfg.ipxeHTTPScript.retryDelay,
+			Logger:                log,
+			Backend:               br,
+			OSIEURL:               cfg.ipxeHTTPScript.hookURL,
+			ExtraKernelParams:     strings.Split(cfg.ipxeHTTPScript.extraKernelArgs, " "),
+			PublicSyslogFQDN:      cfg.dhcp.syslogIP,
+			TinkServerTLS:         cfg.ipxeHTTPScript.tinkServerUseTLS,
+			TinkServerInsecureTLS: cfg.ipxeHTTPScript.tinkServerInsecureTLS,
+			TinkServerGRPCAddr:    cfg.ipxeHTTPScript.tinkServer,
+			IPXEScriptRetries:     cfg.ipxeHTTPScript.retries,
+			IPXEScriptRetryDelay:  cfg.ipxeHTTPScript.retryDelay,
 		}
 		// serve ipxe script from the "/" URI.
 		handlers["/"] = jh.HandlerFunc()
