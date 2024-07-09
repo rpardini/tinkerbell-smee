@@ -25,6 +25,7 @@ type Handler struct {
 	ExtraKernelParams    []string
 	PublicSyslogFQDN     string
 	TinkServerTLS        bool
+	TinkServerInsecureTLS bool
 	TinkServerGRPCAddr   string
 	IPXEScriptRetries    int
 	IPXEScriptRetryDelay int
@@ -258,19 +259,20 @@ func (h *Handler) defaultScript(span trace.Span, hw data) (string, error) {
 	}
 
 	auto := Hook{
-		Arch:              arch,
-		Console:           "",
-		DownloadURL:       h.OSIEURL,
-		ExtraKernelParams: h.ExtraKernelParams,
-		Facility:          hw.Facility,
-		HWAddr:            mac.String(),
-		SyslogHost:        h.PublicSyslogFQDN,
-		TinkerbellTLS:     h.TinkServerTLS,
-		TinkGRPCAuthority: h.TinkServerGRPCAddr,
-		VLANID:            hw.VLANID,
-		WorkerID:          wID,
-		Retries:           h.IPXEScriptRetries,
-		RetryDelay:        h.IPXEScriptRetryDelay,
+		Arch:                  arch,
+		Console:               "",
+		DownloadURL:           h.OSIEURL,
+		ExtraKernelParams:     h.ExtraKernelParams,
+		Facility:              hw.Facility,
+		HWAddr:                mac.String(),
+		SyslogHost:            h.PublicSyslogFQDN,
+		TinkerbellTLS:         h.TinkServerTLS,
+		TinkerbellInsecureTLS: h.TinkServerInsecureTLS,
+		TinkGRPCAuthority:     h.TinkServerGRPCAddr,
+		VLANID:                hw.VLANID,
+		WorkerID:              wID,
+		Retries:               h.IPXEScriptRetries,
+		RetryDelay:            h.IPXEScriptRetryDelay,
 	}
 	if sc := span.SpanContext(); sc.IsSampled() {
 		auto.TraceID = sc.TraceID().String()

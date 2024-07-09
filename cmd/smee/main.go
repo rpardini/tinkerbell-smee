@@ -89,6 +89,7 @@ type ipxeHTTPScript struct {
 	hookURL          string
 	tinkServer       string
 	tinkServerUseTLS bool
+	tinkServerInsecureTLS         bool
 	trustedProxies   string
 	retries          int
 	retryDelay       int
@@ -227,6 +228,7 @@ func main() {
 			ExtraKernelParams:    strings.Split(cfg.ipxeHTTPScript.extraKernelArgs, " "),
 			PublicSyslogFQDN:     cfg.dhcp.syslogIP,
 			TinkServerTLS:        cfg.ipxeHTTPScript.tinkServerUseTLS,
+			TinkServerInsecureTLS: cfg.ipxeHTTPScript.tinkServerInsecureTLS,
 			TinkServerGRPCAddr:   cfg.ipxeHTTPScript.tinkServer,
 			IPXEScriptRetries:    cfg.ipxeHTTPScript.retries,
 			IPXEScriptRetryDelay: cfg.ipxeHTTPScript.retryDelay,
