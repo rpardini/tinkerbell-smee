@@ -154,6 +154,8 @@ github.com/prometheus/procfs v0.15.1 h1:YagwOFzUgYfKKHX6Dr+sHT7km/hxC76UB0leargg
 github.com/prometheus/procfs v0.15.1/go.mod h1:fB45yRUv8NstnjriLhBQLuOUt+WW4BsoGhij/e3PBqk=
 github.com/rogpeppe/go-internal v1.12.0 h1:exVL4IDcn6na9z1rAb56Vxr+CgyK3nn3O+epU5NdKM8=
 github.com/rogpeppe/go-internal v1.12.0/go.mod h1:E+RYuTGaKKdloAfM02xzb0FW3Paa99yedzYV+kq4uf4=
+github.com/rpardini/tinkerbell-ipxedust v0.0.0-20240803182259-85eef2cd4c10 h1:c7Fe53BtojYcMP/KIC5D05vPd24ACSf34mWMXfYuGRM=
+github.com/rpardini/tinkerbell-ipxedust v0.0.0-20240803182259-85eef2cd4c10/go.mod h1:u8/OPkN3x/L3S+0wlVr+tteJwd8av4ImoYlV1rSt7vM=
 github.com/rs/xid v1.5.0/go.mod h1:trrq9SKmegXys3aeAKXMUTdJsYXVwGY3RLcfgqegfbg=
 github.com/rs/zerolog v1.33.0 h1:1cU2KZkvPxNyfgEmhHAz/1A9Bz+llsdYzklWFzgp0r8=
 github.com/rs/zerolog v1.33.0/go.mod h1:/7mN4D5sKwJLZQ2b/znpjC3/GQWY/xaDXUM0kKWRHss=
@@ -168,8 +170,6 @@ github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO
 github.com/stretchr/testify v1.8.1/go.mod h1:w2LPCIKwWwSfY2zedu0+kehJoqGctiVI29o6fzry7u4=
 github.com/stretchr/testify v1.9.0 h1:HtqpIVDClZ4nwg75+f6Lvsy/wHu+3BoSGCbBAcpTsTg=
 github.com/stretchr/testify v1.9.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
-github.com/tinkerbell/ipxedust v0.0.0-20240726225714-c9bd1dd89cc3 h1:d3/jj37PdUj/T+Yy43NAYHEK+homSIowJWQkDHQbLWw=
-github.com/tinkerbell/ipxedust v0.0.0-20240726225714-c9bd1dd89cc3/go.mod h1:zV3E8AR1kG1PCQPFFV3VftTeYmDf29I2ivUJrdagDFA=
 github.com/tinkerbell/tink v0.10.0 h1:W34Psx6Yn5o0jILSgyjF8C7Cg6ivDcccUqJ6zG9zGzA=
 github.com/tinkerbell/tink v0.10.0/go.mod h1:Dc8PpbvrC8Kfhr8yGhUsWBN6Dq6opRIX655KDTxLUJY=
 github.com/u-root/uio v0.0.0-20230305220412-3e8cd9d6bf63 h1:YcojQL98T/OO+rybuzn2+5KrD5dBwXIvYBvQ2cD3Avg=
