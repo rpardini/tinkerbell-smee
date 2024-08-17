@@ -46,8 +46,9 @@ jobs:
       - name: Generate all files
         run: make -j1 gen
 
-      #- name: Run all the tests
-      #  run: make ci
+      - name: Run all the tests
+        continue-on-error: true
+        run: make ci
 
       #- name: upload codecov # rpardini disabled
       #  uses: codecov/codecov-action@v5
